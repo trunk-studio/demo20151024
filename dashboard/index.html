@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <meta charset="UTF-8" />
+  <meta name="author" content="Wolfgang Pichler" />
+  <link rel="canonical" href="http://www.wolfpil.de" />
+  <meta name="robots" content="index" />
+  <link rel="stylesheet" type="text/css" href="css/fluid.css" />
+
+  <title>Scopbee 360 Cloud Edition</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <style>
+  #gmap {
+    height: 100%;
+  }
+  </style>
+
+</head>
+<body>
+
+  <div id="body-top">
+
+    <img src=../logo.png alt="" style="height:50px;margin-left:30px;margin-top:10px;" />
+
+    <div style="display:inline-block;width:200px;float:right;margin-top:10px">
+      KOOBE LOHAS CLUB<br/>
+
+      <i class="fa fa-user"></i> Simon
+    </div>
+
+  </div><!-- end body-top -->
+
+
+  <div id="wrapper" style="position:absolute; top:70px; left:0; width:100%; height:100%">
+
+    <div id="gmap"></div>
+
+    <div id="leftpanel">
+      <div id="panel-tabs">
+
+        <span class="p-tab one" onclick="flipTab('listing')">Cam 1</span>
+        <span class="p-tab" onclick="flipTab('favorites')">Cam 2</span>
+        <span class="p-tab" onclick="flipTab('mysearches')">Cam 3</span>
+
+      </div><!-- end panel-tabs-->
+
+
+      <div id="allpanelCards">
+
+        <div id="listing" style="margin-bottom: 90px; padding: 0 15px 0 20px;">
+
+          <p class="tab-title">
+            Show Videos
+          </p>
+
+        </div><!-- end listing -->
+
+
+        <div id="favorites" style="padding: 0 15px 0 20px; display: none;">
+
+          <p class="tab-title">
+            Tab Two
+          </p>
+
+        </div>
+
+
+        <div id="mysearches" style="padding: 0 15px 0 20px; display: none;">
+
+          <p class="tab-title">
+            Tab Three
+          </p>
+
+        </div>
+
+
+      </div></div></div><!-- end allpanelCards, leftpanel, wrapper -->
+
+
+      <div id="panel-foot">
+        2015 &copy; Scopbee <a href="mailto:360@scopbee.com">360@scopbee.com</a>
+
+      </div>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDf9fwa9PSmom-UTGAsyzgfGN_-aNk8_ZI&amp;sensor=false&amp;libraries=places,geometry,visualization">
+</script>
+
+<script type="text/javascript">
+var map;
+
+function initialize() {
+  var mapOptions = {
+    zoom: 15,
+    center: {lat: 25.076676, lng: 121.5551447},
+    mapTypeId: google.maps.MapTypeId.TERRAIN
+  };
+
+  //    center: {lat: 25.077356, lng: 121.544441},
+
+
+  map = new google.maps.Map(document.getElementById('gmap'),
+      mapOptions);
+
+  var kmlLayer = new google.maps.KmlLayer({
+    url: '/dashboard/kml/cta.kml',
+//    url: 'http://googlemaps.github.io/js-v2-samples/ggeoxml/cta.kml',
+    map: map
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</body>
+</html>
