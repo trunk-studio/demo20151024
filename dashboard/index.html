@@ -31,10 +31,25 @@
 
   <div id="body-top">
 
-    <img src=../logo.png alt="" style="height:50px;margin-left:30px;margin-top:10px;" />
 
-    <div style="display:inline-block;width:200px;float:right;margin-top:10px">
-      KOOBE LOHAS CLUB<br/>
+    <img src=../logo.png alt="" style="height:50px;padding-left:30px;padding-top:10px;float:left" />
+
+    <div style="display:inline-block;width:150px;margin-left:20px;float:left;padding-top:10px">
+      Scopbee 360<br/>
+      Cloud Edition
+    </div>
+
+    <div style="display:inline-block;width:150px;float:right;margin-top:10px">
+
+      <!--
+      <div style="float:left;padding:5px;">
+        <img src="img/cloud.png" alt="" style="width:50px;" />
+      </div>
+    -->
+
+      <i class="fa fa-globe"></i>
+      LOHAS CLUB
+      <br/>
 
       <i class="fa fa-user"></i> Simon
     </div>
@@ -47,6 +62,10 @@
     <div id="gmap"></div>
 
     <div id="leftpanel">
+
+      大佳河濱公園
+      Dajia River Park
+
       <div id="panel-tabs">
 
         <span class="p-tab one" onclick="flipTab('listing')">Cam 1</span>
@@ -61,8 +80,13 @@
         <div id="listing" style="margin-bottom: 90px; padding: 0 15px 0 20px;">
 
           <p class="tab-title">
-            Show Videos
+            Cam 1 / 1080p / h.264
           </p>
+
+          <video width="320" controls>
+            <source src="https://s3-ap-northeast-1.amazonaws.com/s3.scopbee.com/development/u/simon/20151017/cam1.h264.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
 
         </div><!-- end listing -->
 
@@ -73,6 +97,15 @@
             Tab Two
           </p>
 
+          <p class="tab-title">
+            Cam 2 / 1080p / h.264
+          </p>
+
+          <video width="320" controls>
+            <source src="https://s3-ap-northeast-1.amazonaws.com/s3.scopbee.com/development/u/simon/20151017/cam2.h264.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+
         </div>
 
 
@@ -82,11 +115,18 @@
             Tab Three
           </p>
 
+          <p class="tab-title">
+            Cam 3 / 1080p / h.264
+          </p>
+
+          <video width="320" controls>
+            <source src="https://s3-ap-northeast-1.amazonaws.com/s3.scopbee.com/development/u/simon/20151017/cam3.h264.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+
         </div>
 
-
       </div></div></div><!-- end allpanelCards, leftpanel, wrapper -->
-
 
       <div id="panel-foot">
         2015 &copy; Scopbee <a href="mailto:360@scopbee.com">360@scopbee.com</a>
@@ -112,12 +152,23 @@ function initialize() {
 
   //    center: {lat: 25.077356, lng: 121.544441},
 
-
   map = new google.maps.Map(document.getElementById('gmap'),
       mapOptions);
 
   var kmlLayer = new google.maps.KmlLayer({
-    url: '/dashboard/kml/cta.kml',
+    url: 'https://s3-ap-northeast-1.amazonaws.com/s3.scopbee.com/development/u/simon/20151017/cam1.kml',
+//    url: 'http://googlemaps.github.io/js-v2-samples/ggeoxml/cta.kml',
+    map: map
+  });
+
+  var kmlLayer = new google.maps.KmlLayer({
+    url: 'https://s3-ap-northeast-1.amazonaws.com/s3.scopbee.com/development/u/simon/20151017/cam2.kml',
+//    url: 'http://googlemaps.github.io/js-v2-samples/ggeoxml/cta.kml',
+    map: map
+  });
+
+  var kmlLayer = new google.maps.KmlLayer({
+    url: 'https://s3-ap-northeast-1.amazonaws.com/s3.scopbee.com/development/u/simon/20151017/cam3.kml',
 //    url: 'http://googlemaps.github.io/js-v2-samples/ggeoxml/cta.kml',
     map: map
   });
