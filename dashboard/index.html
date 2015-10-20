@@ -24,114 +24,180 @@
   #gmap {
     height: 100%;
   }
+
+  .cam {
+    width:150px;
+  }
+
+  #cam.transition {
+    -moz-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+  }
+
+  #cam.rotate1 {
+    -ms-transform: rotate(92deg); /* IE 9 */
+    -webkit-transform: rotate(92deg); /* Chrome, Safari, Opera */
+    transform: rotate(92deg);
+  }
+
+  #cam.rotate2 {
+    -ms-transform: rotate(3deg); /* IE 9 */
+    -webkit-transform: rotate(3deg); /* Chrome, Safari, Opera */
+    transform: rotate(3deg);
+  }
+
+  #cam.rotate3 {
+    -ms-transform: rotate(-85deg); /* IE 9 */
+    -webkit-transform: rotate(-85deg); /* Chrome, Safari, Opera */
+    transform: rotate(-85deg);
+  }
+
   </style>
 
 </head>
 <body>
 
-  <div id="body-top">
+<div id="body-top">
 
 
-    <img src=../logo.png alt="" style="height:50px;padding-left:30px;padding-top:10px;float:left" />
+  <img src=../logo.png alt="" style="height:50px;padding-left:30px;padding-top:10px;float:left" />
 
-    <div style="display:inline-block;width:150px;margin-left:20px;float:left;padding-top:10px">
-      Scopbee 360<br/>
-      Cloud Edition
+  <div style="display:inline-block;width:150px;margin-left:20px;float:left;padding-top:10px">
+    Scopbee 360<br/>
+    Cloud Edition
+  </div>
+
+  <div style="display:inline-block;width:150px;float:right;margin-top:10px">
+
+    <!--
+    <div style="float:left;padding:5px;">
+      <img src="img/cloud.png" alt="" style="width:50px;" />
     </div>
+  -->
 
-    <div style="display:inline-block;width:150px;float:right;margin-top:10px">
+    <i class="fa fa-globe"></i>
+    LOHAS CLUB
+    <br/>
 
-      <!--
-      <div style="float:left;padding:5px;">
-        <img src="img/cloud.png" alt="" style="width:50px;" />
-      </div>
-    -->
+    <i class="fa fa-user"></i> Simon
+  </div>
 
-      <i class="fa fa-globe"></i>
-      LOHAS CLUB
-      <br/>
-
-      <i class="fa fa-user"></i> Simon
-    </div>
-
-  </div><!-- end body-top -->
+</div><!-- end body-top -->
 
 
-  <div id="wrapper" style="position:absolute; top:70px; left:0; width:100%; height:100%">
+<div id="wrapper" style="position:absolute; top:70px; left:0; width:100%; height:100%">
 
-    <div id="gmap"></div>
+  <div id="gmap"></div>
 
-    <div id="leftpanel">
+  <div id="leftpanel" class="container-fluid">
 
-      大佳河濱公園
-      Dajia River Park
+    大佳河濱公園
+    Dajia River Park
 
-      <div id="panel-tabs">
-
-        <span class="p-tab one" onclick="flipTab('listing')">Cam 1</span>
-        <span class="p-tab" onclick="flipTab('favorites')">Cam 2</span>
-        <span class="p-tab" onclick="flipTab('mysearches')">Cam 3</span>
-
-      </div><!-- end panel-tabs-->
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal">
+      <i class="fa fa-play"></i>
+      Play Now
+    </button>
 
 
-      <div id="allpanelCards">
 
-        <div id="listing" style="margin-bottom: 90px; padding: 0 15px 0 20px;">
+    <div style="margin-top:20px">
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+          <a href="#home" aria-controls="home" role="tab" data-toggle="tab" data-cam="1">Cam 1</a>
+        </li>
+        <li role="presentation">
+          <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" data-cam="2">Cam 2</a>
+        </li>
+        <li role="presentation">
+          <a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" data-cam="3">Cam 3</a>
+        </li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">
+
+          <!-- cam 1 -->
 
           <p class="tab-title">
             Cam 1 / 1080p / h.264
           </p>
 
-          <video width="320" controls>
-            <source src="https://s3-ap-northeast-1.amazonaws.com/s3.scopbee.com/development/u/simon/20151017/cam1.h264.mp4" type="video/mp4">
+          <video width="320" controls preload="metadata">
+            <source src="http://cdn.scopbee.com/development/u/simon/20151017/cam1.ydl.mp4" type="video/mp4">
             Your browser does not support HTML5 video.
           </video>
 
-        </div><!-- end listing -->
-
-
-        <div id="favorites" style="padding: 0 15px 0 20px; display: none;">
-
-          <p class="tab-title">
-            Tab Two
-          </p>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="profile">
 
           <p class="tab-title">
             Cam 2 / 1080p / h.264
           </p>
 
-          <video width="320" controls>
-            <source src="https://s3-ap-northeast-1.amazonaws.com/s3.scopbee.com/development/u/simon/20151017/cam2.h264.mp4" type="video/mp4">
+          <video width="320" controls preload="metadata">
+            <source src="https://s3-ap-northeast-1.amazonaws.com/s3.scopbee.com/development/u/simon/20151017/cam2.ydl.mp4" type="video/mp4">
             Your browser does not support HTML5 video.
           </video>
 
         </div>
+        <div role="tabpanel" class="tab-pane" id="messages">
 
-
-        <div id="mysearches" style="padding: 0 15px 0 20px; display: none;">
-
-          <p class="tab-title">
-            Tab Three
-          </p>
 
           <p class="tab-title">
             Cam 3 / 1080p / h.264
           </p>
 
-          <video width="320" controls>
-            <source src="https://s3-ap-northeast-1.amazonaws.com/s3.scopbee.com/development/u/simon/20151017/cam3.h264.mp4" type="video/mp4">
+          <video width="320" controls preload="metadata">
+            <source src="https://s3-ap-northeast-1.amazonaws.com/s3.scopbee.com/development/u/simon/20151017/cam3.ydl.mp4" type="video/mp4">
             Your browser does not support HTML5 video.
           </video>
 
         </div>
+      </div>
 
-      </div></div></div><!-- end allpanelCards, leftpanel, wrapper -->
+      <div class="text-center">
+        <img src="img/cam.png" alt="" id="cam" class="cam transition rotate" />
+      </div>
 
-      <div id="panel-foot">
-        2015 &copy; Scopbee <a href="mailto:360@scopbee.com">360@scopbee.com</a>
+
+    </div>
+
+  </div>
+</div><!-- end allpanelCards, leftpanel, wrapper -->
+
+<div id="panel-foot">
+  2015 &copy; Scopbee <a href="mailto:360@scopbee.com">360@scopbee.com</a>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Scopbee 360 Video Player</h4>
+      </div>
+      <div class="modal-body">
+        <video width="100%" autoplay="">
+          <source src="https://s3-ap-northeast-1.amazonaws.com/s3.scopbee.com/development/u/simon/20151017/flat.ydl.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
 
       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -147,6 +213,7 @@ function initialize() {
   var mapOptions = {
     zoom: 15,
     center: {lat: 25.076676, lng: 121.5551447},
+    styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}],
     mapTypeId: google.maps.MapTypeId.TERRAIN
   };
 
@@ -155,26 +222,51 @@ function initialize() {
   map = new google.maps.Map(document.getElementById('gmap'),
       mapOptions);
 
-  var kmlLayer = new google.maps.KmlLayer({
+  var kmlLayer1 = new google.maps.KmlLayer({
     url: 'https://s3-ap-northeast-1.amazonaws.com/s3.scopbee.com/development/u/simon/20151017/cam1.kml',
 //    url: 'http://googlemaps.github.io/js-v2-samples/ggeoxml/cta.kml',
     map: map
   });
 
-  var kmlLayer = new google.maps.KmlLayer({
+  var kmlLayer2 = new google.maps.KmlLayer({
     url: 'https://s3-ap-northeast-1.amazonaws.com/s3.scopbee.com/development/u/simon/20151017/cam2.kml',
 //    url: 'http://googlemaps.github.io/js-v2-samples/ggeoxml/cta.kml',
     map: map
   });
 
-  var kmlLayer = new google.maps.KmlLayer({
+  var kmlLayer3 = new google.maps.KmlLayer({
     url: 'https://s3-ap-northeast-1.amazonaws.com/s3.scopbee.com/development/u/simon/20151017/cam3.kml',
 //    url: 'http://googlemaps.github.io/js-v2-samples/ggeoxml/cta.kml',
     map: map
   });
+
+  var kmlListener = function(kmlEvent) {
+    console.log(kmlEvent.featureData);
+  };
+
+  google.maps.event.addListener(kmlLayer1, 'click', kmlListener);
+  google.maps.event.addListener(kmlLayer2, 'click', kmlListener);
+  google.maps.event.addListener(kmlLayer3, 'click', kmlListener);
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
+
+$(function() {
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    //e.target // newly activated tab
+    //e.relatedTarget // previous active tab
+
+    var camNo = $(e.target).data('cam');
+
+    $('#cam').removeClass('rotate1 rotate2 rotate3').addClass('rotate' + camNo);
+
+  });
+
+  window.setTimeout(function () {
+    $('#cam').addClass('rotate1');
+  }, 500);
+});
 </script>
 </body>
 </html>
