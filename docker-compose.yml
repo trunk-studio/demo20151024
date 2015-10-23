@@ -8,3 +8,4 @@ web:
   environment:
     PORT: "3000"
   command: "/bin/bash -c 'npm install && npm install -g gulp && gulp server'"
+  restart: always
