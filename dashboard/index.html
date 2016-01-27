@@ -70,7 +70,7 @@
   }
 
   #uploader { margin-top: 150px; }
-  #holder { width: 640px; min-height: 300px; margin: 50px auto; color: #555; }
+  #holder { width: 640px; min-height: 300px; margin: 50px auto; color: #888; }
   #holder h3 {
     font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
     text-shadow: 0px 0px 2px #000;
@@ -184,7 +184,7 @@
 
           <div class="video-wrapper">
             <video width="320" preload="metadata" autoplay loop>
-              <source src="http://cdn.scopbee.com/development/u/simon/20151017/cam1.ydl.mp4" type="video/mp4">
+              <source src="https://s3-ap-northeast-1.amazonaws.com/s3.scopbee.com/development/u/simon/20151017/cam1.ydl.mp4" type="video/mp4">
               Your browser does not support HTML5 video.
             </video>
           </div>
@@ -433,6 +433,14 @@ var holder = document.getElementById('holder'),
     // to the Element object. Brilliant.
     support[api].className = 'hidden';
   }
+});
+
+$('#uploader').click(function() {
+  $('#uploader').hide();
+  $('#wrapper').show();
+
+  //init google map
+  initialize();
 });
 
 function previewfile(file) {

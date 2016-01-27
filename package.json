@@ -57,7 +57,20 @@
     "gulp-tap": "~0.1.3",
     "jshint-stylish": "~2.0.1"
   },
+  "dependencies": {
+    "express": "~4.13.1",
+    "express-session": "^1.11.3"
+  },
+  "config" : { "port" : "9003" },
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "start": "node app.js",
+    "server-start": "pm2 start app.js --name 'demo20151024'",
+    "server-restart": "pm2 restart demo20151024",
+    "server-stop": "pm2 stop demo20151024",
+	"deploy": "rsync -az --exclude .git --progress ./ deploy@trunk-studio.com:/home/deploy/demo20151024",
+	"remote-start": "ssh deploy@trunk-studio.com 'cd demo20151024; npm run server-start'",
+	"remote-stop": "ssh deploy@trunk-studio.com 'cd demo20151024; npm run server-stop'",
+	"remote-restart": "ssh deploy@trunk-studio.com 'cd demo20151024; npm run server-restart'"
   }
 }
